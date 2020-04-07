@@ -61,7 +61,7 @@ set(SO_REVISION "${LIBTIFF_REVISION}")
 message(STATUS "Building tiff version ${LIBTIFF_MAJOR_VERSION}.${LIBTIFF_MINOR_VERSION}.${LIBTIFF_MICRO_VERSION}${LIBTIFF_ALPHA_VERSION}")
 message(STATUS "libtiff library version ${SO_MAJOR}.${SO_MINOR}.${SO_REVISION}")
 
-set(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries")
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build shared libraries")
 
 # Project version
 project(tiff C)
@@ -548,7 +548,7 @@ if(ZSTD_FOUND)
 endif()
 
 # libwebp
-option(webp "use libwebp (required for WEBP compression)" ON)
+option(webp "use libwebp (required for WEBP compression)" OFF)
 if (webp)
     find_path(WEBP_INCLUDE_DIR /webp/decode.h)
     find_library(WEBP_LIBRARY NAMES webp)
@@ -578,7 +578,7 @@ if (JPEG12_FOUND)
 endif()
 
 # C++ support
-option(cxx "Enable C++ stream API building (requires C++ compiler)" ON)
+option(cxx "Enable C++ stream API building (requires C++ compiler)" OFF)
 set(CXX_SUPPORT FALSE)
 if (cxx)
   enable_language(CXX)
@@ -704,6 +704,7 @@ if(ZSTD_LIBRARIES)
 endif()
 if(WEBP_LIBRARIES)
   list(APPEND TIFF_LIBRARY_DEPS ${WEBP_LIBRARIES})
+  log()
 endif()
 
 #report_values(TIFF_INCLUDES TIFF_LIBRARY_DEPS)
