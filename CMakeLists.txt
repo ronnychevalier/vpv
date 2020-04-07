@@ -257,6 +257,8 @@ if(USE_SDL)
 
     set(SDL_SHARED OFF)
     set(SDL_STATIC ON)
+    set(SDL_SHARED_ENABLED_BY_DEFAULT OFF)
+    set(SDL_STATIC_ENABLED_BY_DEFAULT ON)
     set(SDL_AUDIO OFF)
     add_subdirectory(external/sdl2)
 
