@@ -91,7 +91,7 @@
 #undef INCOMPLETE_TYPES_BROKEN
 
 /* from jconfig.vc */
-#ifdef _MSC_VER
+//#ifdef _MSC_VER
   /* Define "boolean" as unsigned char, not int, per Windows custom */
   #ifndef __RPCNDR_H__		/* don't conflict if rpcndr.h already read */
   typedef unsigned char boolean;
@@ -99,7 +99,7 @@
   #define FALSE 0
   #endif
   #define HAVE_BOOLEAN		/* prevent jmorecfg.h from redefining it */
-#endif
+//#endif
 
 /*
  * The following options affect code selection within the JPEG library,
