@@ -127,20 +127,30 @@ endif()
 ##
 #################
 
-add_library(iio external/iio/iio.c external/iio/npy.c)
+add_library(iio STATIC external/iio/iio.c external/iio/npy.c)
 include_directories(external/iio)
 
-find_package(PNG REQUIRED)
-include_directories(${PNG_INCLUDE_DIRS})
-target_link_libraries(iio ${PNG_LIBRARIES})
+#find_package(PNG REQUIRED)
+set(PNG_SHARED OFF)
+set(PNG_STATIC ON)
+set(PNG_TESTS OFF)
+add_subdirectory(external/libpng)
+include_directories(external/libpng/)
+target_link_libraries(iio png_static)
 
-find_package(TIFF REQUIRED)
-include_directories(${TIFF_INCLUDE_DIRS})
-target_link_libraries(iio ${TIFF_LIBRARIES})
+set(BUILD_SHARED_LIBS OFF)
+add_subdirectory(external/libtiff)
+include_directories(external/libtiff/libtiff)
+target_link_libraries(iio tiff)
 
-find_package(JPEG REQUIRED)
-include_directories(${JPEG_INCLUDE_DIRS})
-target_link_libraries(iio ${JPEG_LIBRARIES})
+#find_package(JPEG REQUIRED)
+set(ENABLE_SHARED OFF)
+set(ENABLE_STATIC ON)
+set(WITH_TURBOJPEG OFF)
+add_subdirectory(external/libjpeg-turbo)
+include_directories(external/libjpeg-turbo)
+#include_directories(${JPEG_INCLUDE_DIRS})
+target_link_libraries(iio jpeg-static)
 
 if(USE_EXR)
 	find_package(OpenEXR REQUIRED)
@@ -240,7 +250,11 @@ add_library(lua STATIC
 
 if(USE_SDL)
     add_definitions(-DSDL)
-    find_package(SDL2 REQUIRED)
+    #find_package(SDL2 REQUIRED)
+
+    set(SDL_SHARED OFF)
+    set(SDL_STATIC ON)
+    add_subdirectory(external/sdl2)
 
     if (USE_GL3)
         add_definitions(-DGL3)
@@ -260,13 +274,8 @@ if(USE_SDL)
     )
     include_directories(external/imgui/examples/libs/gl3w)
 
-    if(SDL2_LIBRARIES)
-        string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
-        set(LIBS ${LIBS} ${SDL2_LIBRARIES})
-    else()
-        # I don't know why the other solution does not work on manjaro
-        set(LIBS ${LIBS} SDL2)
-    endif()
+    include_directories(external/sdl2/include/)
+    set(LIBS ${LIBS} SDL2-static)
 endif()
 
 
