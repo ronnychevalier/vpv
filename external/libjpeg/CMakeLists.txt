@@ -8,9 +8,9 @@ project ( libjpeg C )
 cmake_minimum_required ( VERSION 2.8 )
 include ( cmake/dist.cmake )
 
-OPTION(BUILD_STATIC OFF)
-OPTION(BUILD_EXECUTABLES ON)
-OPTION(BUILD_TESTS ON)
+OPTION(BUILD_STATIC ON)
+OPTION(BUILD_EXECUTABLES OFF)
+OPTION(BUILD_TESTS OFF)
 
 include ( CheckIncludeFile )
 check_include_file ( stddef.h HAVE_STDDEF_H )
