@@ -488,7 +488,7 @@ endif()
 
 # JBIG-KIT
 option(jbig "use ISO JBIG compression (requires JBIT-KIT library)" ON)
-if (jbig)
+if (jbig AND FALSE)
   set(JBIG_FOUND 0)
   find_path(JBIG_INCLUDE_DIR jbig.h)
   set(JBIG_NAMES ${JBIG_NAMES} jbig libjbig)
@@ -498,12 +498,17 @@ if (jbig)
     set(JBIG_LIBRARIES ${JBIG_LIBRARY})
   endif()
 endif()
+
+set(jbig)
+set(JBIG_FOUND TRUE)
+
 set(JBIG_SUPPORT 0)
 if(JBIG_FOUND)
   set(JBIG_FOUND TRUE)
   set(JBIG_SUPPORT 1)
 else()
   set(JBIG_FOUND FALSE)
+
 endif()
 
 set(CMAKE_REQUIRED_INCLUDES_SAVE ${CMAKE_REQUIRED_INCLUDES})

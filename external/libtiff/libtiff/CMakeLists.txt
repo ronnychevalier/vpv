@@ -96,7 +96,9 @@ set(tiff_SOURCES
   tif_webp.c
   tif_write.c
   tif_zip.c
-  tif_zstd.c)
+  tif_zstd.c
+  jbig.c
+  jbig_ar.c)
 
 set(tiffxx_HEADERS
   tiffio.hxx)
