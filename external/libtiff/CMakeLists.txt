@@ -586,9 +586,10 @@ if (cxx)
 endif()
 
 # OpenGL and GLUT
+set(HAVE_OPENGL FALSE)
+if(0)
 find_package(OpenGL)
 find_package(GLUT)
-set(HAVE_OPENGL FALSE)
 if(OPENGL_FOUND AND OPENGL_GLU_FOUND AND GLUT_FOUND)
   set(HAVE_OPENGL TRUE)
 endif()
@@ -599,6 +600,7 @@ check_include_file(GL/glut.h HAVE_GL_GLUT_H)
 check_include_file(GLUT/glut.h HAVE_GLUT_GLUT_H)
 check_include_file(OpenGL/gl.h HAVE_OPENGL_GL_H)
 check_include_file(OpenGL/glu.h HAVE_OPENGL_GLU_H)
+endif()
 
 # Win32 IO
 set(win32_io FALSE)
