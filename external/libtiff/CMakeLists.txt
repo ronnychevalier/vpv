@@ -471,7 +471,7 @@ endif()
 # JPEG
 option(jpeg "use libjpeg (required for JPEG compression)" ON)
 if (jpeg)
-  find_package(JPEG)
+  #find_package(JPEG)
 endif()
 set(JPEG_SUPPORT FALSE)
 if(JPEG_FOUND)
