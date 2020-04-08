@@ -150,6 +150,14 @@ add_subdirectory(external/libtiff)
 include_directories(external/libtiff/libtiff)
 target_link_libraries(iio tiff)
 
+add_subdirectory(external/xz)
+include_directories(external/xz/)
+target_link_libraries(iio liblzma)
+
+add_subdirectory(external/zstd/build/cmake)
+include_directories(external/zstd/lib)
+target_link_libraries(iio libzstd_static)
+
 if(USE_EXR)
 	find_package(OpenEXR REQUIRED)
 	add_definitions(-DI_CAN_HAS_LIBEXR) # for iio
