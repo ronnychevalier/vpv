@@ -14,6 +14,8 @@
                                 <string>public.item</string>
                                 <string>public.folder</string>
                         </array>
+                        <key>CFBundleTypeRole</key>
+                        <string>Viewer</string>
                 </dict>
         </array>
         <key>CFBundleExecutable</key>
