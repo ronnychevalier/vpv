@@ -387,7 +387,7 @@ install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/vpv DESTINATION bin)
 if(APPLE)
     set_target_properties(vpv PROPERTIES
         MACOSX_BUNDLE ON
-        MACOSX_BUNDLE_INFO_PLIST misc/MacOSXBundleInfo.plist.in)
+        MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/misc/MacOSXBundleInfo.plist.in)
 endif()
 
 if (CMAKE_GENERATOR STREQUAL "Ninja" AND
