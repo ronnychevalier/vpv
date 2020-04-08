@@ -4,6 +4,18 @@
 <dict>
         <key>CFBundleDevelopmentRegion</key>
         <string>English</string>
+        <key>CFBundleDocumentTypes</key>
+        <array>
+                <dict>
+                        <key>CFBundleExtensions</key>
+                        <array/>
+                        <key>LSItemContentTypes</key>
+                        <array>
+                                <string>public.item</string>
+                                <string>public.folder</string>
+                        </array>
+                </dict>
+        </array>
         <key>CFBundleExecutable</key>
         <string>vpv</string>
         <key>CFBundleGetInfoString</key>
@@ -29,6 +41,6 @@
         <key>CSResourcesFileMapped</key>
         <true/>
         <key>NSHumanReadableCopyright</key>
-        <string></string>
+        <string>© 2020 Jérémy Anger</string>
 </dict>
 </plist>
