@@ -1,6 +1,11 @@
 language: cpp
 
-script: mkdir build && cd build; cmake .. -G "MinGW Makefiles"; make
+script:
+- mkdir build
+- cd build
+- cmake .. -G "MinGW Makefiles" || true
+- echo ok
+- make
 
 sudo: required
 make: make cmake
