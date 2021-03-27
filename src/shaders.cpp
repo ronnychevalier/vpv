@@ -26,11 +26,7 @@ static std::string defaultVertex = S(
 
 Shader* createShader(const std::string& mainFragment)
 {
-    Shader* shader = new Shader;
-    auto end = std::copy(mainFragment.cbegin(), mainFragment.cend(), shader->codeFragment);
-    *end = '\0';
-    end = std::copy(defaultVertex.cbegin(), defaultVertex.cend(), shader->codeVertex);
-    *end = '\0';
+    Shader* shader = new Shader(mainFragment, defaultVertex);
     if (!shader->compile()) {
     }
     return shader;
